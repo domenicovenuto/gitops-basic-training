@@ -17,9 +17,9 @@ spec:
     metadata:
       annotations:
       gitops.training.sass.ro/appVersion: {{ .Chart.AppVersion | quote}}
-      {{- with .Values.podAnnotations }}
-        {{- toYaml . | nindent 8 }}
-      {{- end }}
+        {{- with .Values.podAnnotations }}
+          {{- toYaml . | nindent 8 }}
+        {{- end }}
       labels:
         {{- include "webapp.selectorLabels" . | nindent 8 }}
     spec:
