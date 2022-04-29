@@ -13,16 +13,15 @@ spec:
   selector:
     matchLabels:
       {{- include "webapp.selectorLabels" . | nindent 6 }}
-  template:
-    metadata:
-      {{- with .Values.podAnnotations }}
-      annotations:
-        gitops.training.sass.ro/appVersion: {{ .Chart.AppVersion | quote}}
-        {{- with .Values.podAnnotations }}
-          {{- toYaml . | nindent 8 }}
-        {{- end }}
-      labels:
-        {{- include "webapp.selectorLabels" . | nindent 8 }}
+    template: 
+      metadata: 
+        annotations: 
+          gitops.training.sass.ro/appVersion: {{ .Chart.AppVersion | quote}} 
+          {{- with .Values.podAnnotations }} 
+            {{- toYaml . | nindent 8 }} 
+          {{- end }} 
+        labels: 
+          {{- include "webapp.selectorLabels" . | nindent 8 }} 
     spec:
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
