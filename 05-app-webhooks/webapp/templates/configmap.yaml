@@ -6,7 +6,7 @@ metadata:
   {{- include "webapp.labels" . | nindent 4 }}
 data:
   index.html: |
-    test final pod rollout <p>
+    webhook final test<p>
     This is version {{ .Chart.AppVersion }} of our app, running in {{ .Values.appType }}
 
 
